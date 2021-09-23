@@ -1,0 +1,6 @@
+# Administrador de proyectos de inveestigación - Backend
+
+Ejecutar el siguiente codigo para generar las dependencias
+...
+nom install
+...

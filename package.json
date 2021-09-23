@@ -1,0 +1,15 @@
+{
+  "name": "serverproyectos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "start:dev": "nodemon index.js"
+  },
+  "author": "Velasquez Abanto Michael Edilberto",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+  "express": "^4.17.1"
+  }
+}
