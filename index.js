@@ -1,27 +1,26 @@
-const express = require('express'); //sintaxis de importacion en nodejs
-require('dotenv').config();
-const {dbConection} = require('./config/database');
+const express = require('express'); // de esta forma se importa en node
+
+require ('dotenv').config();
+const { dbConection } = require('./config/database');
 const cors = require('cors');
 
-
-//Crear el servidor express
+//Creando el servidor express
 const app = express();
 
-//Configurar cors
+//Configuracion de CORS
 app.use(cors());
 
-//Estableciendo conexion a la base de datos
-dbConection();
-//console.log(process.env);
+//Lectura y parseo del body
+app.use(express.json());
 
-//Rutas de la API Proyectos
-app.get('/', (req, res)=>{//req hago peticion, res recibo mensaje
-    res.json({
-        ok:true,
-        msg:'Bienvenidos a NodeJS'
-    });
-});
-//codigo para desplegar el servidor
+//Conexion a la BD
+dbConection();
+
+//Rutas de la API
+app.use('/api/usuarios', require('./routes/usuarios.routes'));
+app.use('/api/login', require('./routes/auth.routes'));
+
+//Para levantar el servidor
 app.listen(process.env.PORT, ()=>{
-    console.log('Servidor desplegado en el puerto:' + process.env.PORT)
+    console.log('Servidor corriendo en el puerto' + process.env.PORT)
 })
